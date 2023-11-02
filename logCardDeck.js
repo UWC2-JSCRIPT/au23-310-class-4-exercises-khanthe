@@ -58,4 +58,26 @@ const cards = [
  *
  * @param {array} deck A deck of cards
  */
-const logCardDeck = deck => {};
+const logCardDeck = deck => {
+
+  deck.forEach(card => {
+
+    /* 
+     * Outputs all properties on a single line
+     *
+    const cardProps = Object.keys(card);
+    for (let key of cardProps) {
+      console.log(`${key}: ${card[key]}`);
+    }
+    */
+
+    // Outputs a human-readable string with the object's data
+    console.log(`The ${card.displayVal} of ${card.suit} has a value of ${card.val}.`);
+
+    console.log(`------`); // visual separator
+
+  });
+
+}
+
+logCardDeck(cards);
