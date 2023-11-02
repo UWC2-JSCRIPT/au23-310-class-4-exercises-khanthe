@@ -3,48 +3,40 @@
  * @returns {Array} deck - a deck of cards
  */
 const getDeck = () => {
-  const deck = []
-  const suits = ['hearts', 'spades', 'clubs', 'diamonds']
+  const cards = [];
+  const suits = ['Hearts', 'Diamonds', 'Clubs', 'Spades'];
 
-  for (let index = 0; index < suits.length; index++) {
-    // create an array of 13 objects
-    for (let j = 1; j <= 13; j++) {
-      // for each loop, push a card object to the deck
+  /// nested for loops
+  for ( let i = 0; i < suits.length; i++) { 
 
-      // special cases for when j > 10
-      const displayVal = ''
+    for ( let j = 2; j <= 14; j++) { 
 
-      switch (j) {
-        case j === 1:
-          displayVal = 'Ace'
-          break
-        case j > 1 && j <= 10:
-          displayVal = j
-          break
-        case j === 11:
-          displayVal = 'Jack'
-          break
-        case j === 12:
-          displayVal = 'Queen'
-          break
-        case j === 13:
-          displayVal = 'King'
-          break
+      let cardVal = -1;
+      let cardDisplayVal = '';
+
+      if ( j > 1 && j < 11 ) {
+        cardVal = j;
+        cardDisplayVal = j.toString();
+      } else if ( j === 11 ) {
+        cardVal = 10;
+        cardDisplayVal = 'Jack';
+      } else if ( j === 12 ) {
+        cardVal = 10;
+        cardDisplayVal = 'Queen';
+      } else if ( j === 13 ) {
+        cardVal = 10;
+        cardDisplayVal = 'King';
+      } else if ( j === 14 ) {
+        cardVal = 11;
+        cardDisplayVal = 'Ace';      
       }
 
-      const card = {
-        val: j,
-        displayVal: displayVal,
-        suit: suits[index],
-      }
-
-      if (displayVal === 'Ace') {
-        card.val = 11
-      }
-
-      deck.push(card)
+      cards.push({val: cardVal, displayVal: cardDisplayVal, suit: suits[i]});
     }
+ 
   }
+
+  return cards;
 }
 
 // CHECKS
